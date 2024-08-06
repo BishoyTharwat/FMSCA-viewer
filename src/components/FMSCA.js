@@ -35,13 +35,23 @@ export default function FMSCA() {
   
     return (
       <div className="App">
-        <h1>Features by Jocks rating for releases <span className="all">All</span></h1>
-        <p>(Select to see item detail if it exists)</p>
+        <h1>
+          FMSCA viewer
+        </h1>
+        <p>BY Bishoy Tharwat</p>
         <div className="search-container">
           <div className="search-box">
-            <input type="text" className="input-search" placeholder="Type to Search..." value={searchQuery} onChange={(event) =>handleSearchChange(event, setSearchQuery, setCurrentPage)}/>
-            <a href='#'>
-              <FaSearch/>
+            <input
+              type="text"
+              className="input-search"
+              placeholder="Type to Search..."
+              value={searchQuery}
+              onChange={(event) =>
+                handleSearchChange(event, setSearchQuery, setCurrentPage)
+              }
+            />
+            <a href="#">
+              <FaSearch />
             </a>
           </div>
         </div>
@@ -66,7 +76,9 @@ export default function FMSCA() {
             <tbody>
               {loading ? (
                 <tr>
-                  <td colSpan="12" className='loading'>Loading...</td>
+                  <td colSpan="12" className="loading">
+                    Loading...
+                  </td>
                 </tr>
               ) : (
                 currentData.map((item, index) => (
@@ -90,27 +102,29 @@ export default function FMSCA() {
           </table>
         </div>
         <div className="pagination">
-          <button 
-            onClick={() => handlePageChange(1, setCurrentPage)} 
+          <button
+            onClick={() => handlePageChange(1, setCurrentPage)}
             disabled={currentPage === 1}
           >
             First
           </button>
-          <button 
-            onClick={() => handlePageChange(currentPage - 1, setCurrentPage)} 
+          <button
+            onClick={() => handlePageChange(currentPage - 1, setCurrentPage)}
             disabled={currentPage === 1}
           >
             Previous
           </button>
-          <span>Page {currentPage} of {totalPages}</span>
-          <button 
-            onClick={() => handlePageChange(currentPage + 1, setCurrentPage)} 
+          <span>
+            Page {currentPage} of {totalPages}
+          </span>
+          <button
+            onClick={() => handlePageChange(currentPage + 1, setCurrentPage)}
             disabled={currentPage === totalPages}
           >
             Next
           </button>
-          <button 
-            onClick={() => handlePageChange(totalPages, setCurrentPage)} 
+          <button
+            onClick={() => handlePageChange(totalPages, setCurrentPage)}
             disabled={currentPage === totalPages}
           >
             Last
